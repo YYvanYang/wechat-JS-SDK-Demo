@@ -1,18 +1,19 @@
+var JsSHA = require('jssha')
 var wechatConfig = require('./wechat.conf.js');
 
-var createNonceStr = function () {
+var createNonceStr = () => {
     return Math.random().toString(36).substr(2, 15);
   };
   
-  var createTimestamp = function () {
+  var createTimestamp = () => {
     return parseInt(new Date().getTime() / 1000) + '';
   };
   
-  var raw = function (args) {
+  var raw = (args) => {
     var keys = Object.keys(args);
     keys = keys.sort()
     var newArgs = {};
-    keys.forEach(function (key) {
+    keys.forEach( (key) => {
       newArgs[key.toLowerCase()] = args[key];
     });
   
@@ -40,7 +41,6 @@ var createNonceStr = function () {
       url: url
     };
     var string = raw(ret);
-        jsSHA = require('jssha');
         shaObj = new jsSHA('SHA-1', 'TEXT');
         shaObj.update(string);
     
@@ -50,5 +50,5 @@ var createNonceStr = function () {
     return ret;
   };
   
-  module.exports = sign;
+export default sign;
   
