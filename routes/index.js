@@ -100,7 +100,7 @@ function getTicket(accessToken) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express', signature});
-  getConfig("http://face.dbce.cn:7100/", res) 
+  getConfig("http://TODOIP:7100/", res) 
 });
 
 module.exports = router;
